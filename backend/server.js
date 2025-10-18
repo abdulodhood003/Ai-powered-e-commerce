@@ -21,10 +21,10 @@ app.use(cors({
   origin: [
     'http://localhost:5173',
      'http://localhost:5174',
+     'https://aurafit-backend-ruby.vercel.app'
 
     
-    'https://abdul-admin-dashboard.vercel.app', // Admin frontend
-    'https://abdul-frontend-ecom.vercel.app'    // E-commerce frontend
+  
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
