@@ -21,7 +21,7 @@ app.use(cors({
   origin: [
     'http://localhost:5173',
      'http://localhost:5174',
-     'https://aurafit-backend-ruby.vercel.app'
+     'https://aurafit-frontend-git-main-abdul-odudoods-projects.vercel.app'
 
     
   
