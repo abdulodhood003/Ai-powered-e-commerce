@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import axios from 'axios';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import { ShopContext } from '../context/ShopContext'; // updated import
+import { ShopContext } from '../context/ShopContext';
 import { toast } from 'react-toastify';
 
 const Verify = () => {
@@ -12,24 +12,27 @@ const Verify = () => {
   const orderId = searchParams.get('orderId');
 
   const verifyPayment = async () => {
-    try {
-      if (!token) return null;
+    if (!token) return; // Wait until token is available
 
+    try {
       const response = await axios.post(
         `${backendUrl}/api/order/verifyStripe`,
         { orderId, success },
-        { headers: { token: token } }
+        { headers: { token } }
       );
 
       if (response.data.success) {
         setCartItems([]); // clear cart
-        navigate('/orders'); // redirect to orders
+        toast.success('Payment verified successfully!');
+        navigate('/orders'); // redirect to orders page
       } else {
-        navigate('/cart'); // redirect to cart
+        toast.error('Payment verification failed.');
+        navigate('/cart');
       }
     } catch (error) {
-      console.log(error);
-      toast.error(error.message);
+      console.error(error);
+      toast.error(error.response?.data?.message || 'Error verifying payment');
+      navigate('/cart');
     }
   };
 
@@ -37,7 +40,7 @@ const Verify = () => {
     verifyPayment();
   }, [token]);
 
-  return <div></div>;
+  return <div className="text-center mt-20 text-gray-600">Verifying your payment...</div>;
 };
 
 export default Verify;
