@@ -10,12 +10,8 @@ It allows users to browse products, filter by category, search for items, manage
 ## 🖼️ Project Preview
 
 ### 🏠 Home Page
-![Home Page](./assets/gemini_image.png)
-
-### 💬 AI Chatbot
-![Chatbot](./assets/chatbot.png)
-
-
+![Home Page](https://github.com/abdulodhood003/Ai-powered-e-commerce/blob/75dffa8138ee645427a64c804427d87155bafe6a/Screenshot%202025-10-19%20122119.png)
+---
 
 ## 🚀 Features
 
@@ -27,9 +23,10 @@ It allows users to browse products, filter by category, search for items, manage
 - 💳 **Checkout System:** Place orders and view order summary.  
 - 🔐 **Authentication:** Login and signup with secure token-based authentication (JWT).  
 - 💬 **AI Chatbot:** Integrated AI assistant using Hugging Face for product help, FAQs, and voice chat.  
-- 🧑‍💻 **Responsive UI:** Fully responsive and mobile-friendly design using Tailwind CSS.  
+- 🧑‍💻 **Responsive UI:** Fully responsive and mobile-friendly design using Tailwind CSS.
+---
 
-### 🧠 Admin Features *(optional / extendable)*
+### 🧠 Admin Features 
 - 📦 Add, edit, or delete products.  
 - 📊 Manage orders and track sales.  
 - ⚙️ Manage users and roles.  
