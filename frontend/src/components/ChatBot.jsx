@@ -119,7 +119,7 @@ const ChatBot = ({ products }) => {
   };
 
   return (
-    <div className="fixed bottom-5 right-5 w-80 flex flex-col shadow-lg rounded-lg overflow-hidden z-50">
+<div className="fixed bottom-4 right-4 z-50 w-[90vw] sm:w-80 md:w-96 max-w-[400px] flex flex-col shadow-xl rounded-xl overflow-hidden">
       {/* Header */}
       <div
         className="bg-pink-300 text-white p-3 cursor-pointer flex justify-between rounded-xl items-center"
@@ -130,7 +130,7 @@ const ChatBot = ({ products }) => {
       </div>
 
       {open && (
-        <div className="bg-white h-96 flex flex-col">
+       <div className="bg-white h-[60vh] sm:h-96 flex flex-col">
           <div className="flex-1 p-3 overflow-y-auto space-y-2">
             {messages.map((msg, idx) => (
   <div key={idx}>
@@ -152,7 +152,7 @@ const ChatBot = ({ products }) => {
             </h3>
 
             <p className="text-gray-700 font-medium">
-              ₹{product.price}
+              ${product.price}
             </p>
 
             <p className="text-sm text-gray-500 mb-2">
