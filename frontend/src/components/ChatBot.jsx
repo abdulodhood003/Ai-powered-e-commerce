@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const ChatBot = ({ products }) => {
   const [messages, setMessages] = useState([
@@ -8,6 +9,7 @@ const ChatBot = ({ products }) => {
   const [input, setInput] = useState("");
   const [open, setOpen] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
+  const navigate = useNavigate();
 
   const faq = [
     { question: "payment", answer: "We accept Cash on Delivery, Stripe, and Razorpay." },
@@ -24,23 +26,9 @@ const ChatBot = ({ products }) => {
     { question: "order", answer: "You can check your order status in the Orders section after login." }
   ];
 
-  // Text-to-Speech
-  const speak = (text) => {
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = "en-US";
-    window.speechSynthesis.speak(utterance);
-  };
-
+  
   // Speech-to-Text
-  const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-  recognition.continuous = false;
-  recognition.interimResults = false;
-  recognition.onresult = (event) => {
-    const spokenText = event.results[0][0].transcript;
-    setInput(spokenText);
-    handleSend(spokenText);
-  };
-  recognition.onerror = (event) => console.error("Speech recognition error", event);
+ 
 
   // Suggestions
   const updateSuggestions = (text) => {
@@ -95,12 +83,21 @@ const ChatBot = ({ products }) => {
       const matchedProducts = products.filter(p =>
         p.name.toLowerCase().includes(query.toLowerCase())
       );
-
       if (matchedProducts.length > 0) {
-        botReply = matchedProducts.map(p =>
-          `${p.name} - Sizes: ${p.sizes.join(", ")} - $${p.price} - ${p.sizes.length > 0 ? "Available" : "Out of stock"}`
-        ).join("\n");
-      } else if (!faq.some(f => query.toLowerCase().includes(f.question))) {
+  setMessages(prev => [
+    ...prev,
+    {
+      sender: "bot",
+      type: "products",
+      products: matchedProducts
+    }
+  ]);
+
+  setInput("");
+  return;
+}
+
+     else if (!faq.some(f => query.toLowerCase().includes(f.question))) {
         // Call Hugging Face AI
         try {
           const res = await axios.post(
@@ -117,7 +114,7 @@ const ChatBot = ({ products }) => {
     }
 
     setMessages(prev => [...prev, { sender: "bot", text: botReply }]);
-    speak(botReply);
+    
     setInput("");
   };
 
@@ -125,7 +122,7 @@ const ChatBot = ({ products }) => {
     <div className="fixed bottom-5 right-5 w-80 flex flex-col shadow-lg rounded-lg overflow-hidden z-50">
       {/* Header */}
       <div
-        className="bg-pink-300 text-white p-3 cursor-pointer flex justify-between items-center"
+        className="bg-pink-300 text-white p-3 cursor-pointer flex justify-between rounded-xl items-center"
         onClick={() => setOpen(!open)}
       >
         <span>AI Chatbot</span>
@@ -136,15 +133,65 @@ const ChatBot = ({ products }) => {
         <div className="bg-white h-96 flex flex-col">
           <div className="flex-1 p-3 overflow-y-auto space-y-2">
             {messages.map((msg, idx) => (
-              <div
-                key={idx}
-                className={`px-3 py-2 rounded-lg max-w-[80%] break-words ${
-                  msg.sender === "user" ? "bg-blue-500 text-white ml-auto" : "bg-gray-100 text-black"
-                }`}
-              >
-                {msg.text}
-              </div>
-            ))}
+  <div key={idx}>
+    {msg.type === "products" ? (
+      <div className="space-y-3">
+        {msg.products.map((product) => (
+          <div
+            key={product._id}
+            className="border rounded-lg p-3 bg-white shadow"
+          >
+            <img
+              src={product.image[0]}
+              alt={product.name}
+              className="w-full h-32 object-cover rounded"
+            />
+
+            <h3 className="font-semibold mt-2">
+              {product.name}
+            </h3>
+
+            <p className="text-gray-700 font-medium">
+              ₹{product.price}
+            </p>
+
+            <p className="text-sm text-gray-500 mb-2">
+              {product.description}
+            </p>
+
+            <div className="flex gap-1 flex-wrap mb-2">
+              {product.sizes?.map((size, i) => (
+                <span
+                  key={i}
+                  className="text-xs bg-gray-200 px-2 py-1 rounded"
+                >
+                  {size}
+                </span>
+              ))}
+            </div>
+
+            <button
+              onClick={() => navigate(`/product/${product._id}`)}
+              className="w-full bg-black text-white py-2 rounded hover:bg-gray-800"
+            >
+              View Product
+            </button>
+          </div>
+        ))}
+      </div>
+    ) : (
+      <div
+        className={`px-3 py-2 rounded-lg max-w-[80%] break-words ${
+          msg.sender === "user"
+            ? "bg-blue-500 text-white ml-auto"
+            : "bg-gray-100 text-black"
+        }`}
+      >
+        {msg.text}
+      </div>
+    )}
+  </div>
+))}
           </div>
 
           {/* Input */}
@@ -173,10 +220,14 @@ const ChatBot = ({ products }) => {
                 ))}
               </div>
             )}
-            <div className="flex mt-1">
-              <button onClick={() => recognition.start()} className="bg-green-500 text-white px-3">🎤</button>
-              <button onClick={() => handleSend()} className="bg-blue-600 text-white px-4">Send</button>
-            </div>
+            <div className="p-2">
+  <button
+    onClick={handleSend}
+    className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+  >
+    Send
+  </button>
+</div>
           </div>
         </div>
       )}
