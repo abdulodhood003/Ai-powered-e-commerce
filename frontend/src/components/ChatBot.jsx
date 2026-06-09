@@ -119,7 +119,7 @@ const ChatBot = ({ products }) => {
   };
 
   return (
-<div className="fixed bottom-4 right-4 z-50 w-[90vw] sm:w-80 md:w-96 max-w-[400px] flex flex-col shadow-xl rounded-xl overflow-hidden">
+<div className="fixed bottom-4 right-4 z-50 w-72 sm:w-80 flex flex-col shadow-xl rounded-xl overflow-hidden">
       {/* Header */}
       <div
         className="bg-pink-300 text-white p-3 cursor-pointer flex justify-between rounded-xl items-center"
@@ -130,32 +130,32 @@ const ChatBot = ({ products }) => {
       </div>
 
       {open && (
-       <div className="bg-white h-[60vh] sm:h-96 flex flex-col">
+     <div className="bg-white h-80 flex flex-col">
           <div className="flex-1 p-3 overflow-y-auto space-y-2">
             {messages.map((msg, idx) => (
   <div key={idx}>
     {msg.type === "products" ? (
       <div className="space-y-3">
         {msg.products.map((product) => (
-          <div
-            key={product._id}
-            className="border rounded-lg p-3 bg-white shadow"
-          >
-            <img
-              src={product.image[0]}
-              alt={product.name}
-              className="w-full h-32 object-cover rounded"
-            />
+         <div
+  key={product._id}
+  className="border rounded-lg p-2 bg-white shadow-sm"
+>
+           <img
+  src={product.image[0]}
+  alt={product.name}
+  className="w-full h-20 object-cover rounded"
+/>
 
-            <h3 className="font-semibold mt-2">
+         <h3 className="font-semibold text-sm mt-1 line-clamp-1">
               {product.name}
             </h3>
 
-            <p className="text-gray-700 font-medium">
+          <p className="text-xs text-gray-500 mb-1 line-clamp-2">
               ${product.price}
             </p>
 
-            <p className="text-sm text-gray-500 mb-2">
+           <p className="text-xs text-gray-500 mb-1 line-clamp-2">
               {product.description}
             </p>
 
@@ -170,10 +170,10 @@ const ChatBot = ({ products }) => {
               ))}
             </div>
 
-            <button
-              onClick={() => navigate(`/products/${product._id}`)}
-              className="w-full bg-black text-white py-2 rounded hover:bg-gray-800"
-            >
+         <button
+  onClick={() => navigate(`/products/${product._id}`)}
+  className="w-full bg-black text-white py-1 text-xs rounded"
+>
               View Product
             </button>
           </div>
