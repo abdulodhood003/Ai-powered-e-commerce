@@ -171,7 +171,7 @@ const ChatBot = ({ products }) => {
             </div>
 
             <button
-              onClick={() => navigate(`/product/${product._id}`)}
+              onClick={() => navigate(`/products/${product._id}`)}
               className="w-full bg-black text-white py-2 rounded hover:bg-gray-800"
             >
               View Product
