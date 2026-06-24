@@ -1,80 +1,169 @@
-# 🛍️ AuraFit – Modern E-Commerce Website
+# 🛍️ AuraFit – AI-Powered E-Commerce Platform
 
-**Live Demo:** [https://aurafit-frontend.vercel.app](https://aurafit-frontend.vercel.app/login)
+<div align="center">
 
-A modern and responsive **E-commerce web application** built using the **MERN stack** (MongoDB, Express.js, React.js, Node.js).  
-It allows users to browse products, filter by category, search for items, manage a cart, and interact with an **AI-powered chatbot** for support and recommendations.
+### Modern MERN Stack E-Commerce Platform with AI Shopping Assistant
+
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_Now-blue?style=for-the-badge)](https://aurafit-frontend.vercel.app)
+[![Source Code](https://img.shields.io/badge/📂_Source_Code-GitHub-black?style=for-the-badge)](https://github.com/abdulodhood003/Ai-powered-e-commerce)
+
+![React](https://img.shields.io/badge/React-Frontend-blue?style=for-the-badge\&logo=react)
+![Node.js](https://img.shields.io/badge/Node.js-Backend-green?style=for-the-badge\&logo=node.js)
+![MongoDB](https://img.shields.io/badge/MongoDB-Database-green?style=for-the-badge\&logo=mongodb)
+![AI Powered](https://img.shields.io/badge/AI-Powered-purple?style=for-the-badge)
+
+</div>
 
 ---
 
-## 🖼️ Project Preview
+## 📖 Overview
+
+AuraFit is a full-stack AI-powered e-commerce platform built using the MERN Stack. The application enables customers to browse products, manage shopping carts, place orders, and interact with an intelligent AI shopping assistant for product recommendations and support.
+
+The platform provides a seamless shopping experience through advanced search, category filtering, secure authentication, responsive design, and AI-driven customer assistance. It is designed to simulate a modern production-ready online shopping system with both customer and administrative functionalities.
+
+---
+
+## 🖼️ Application Preview
 
 ### 🏠 Home Page
-![Home Page](https://github.com/abdulodhood003/Ai-powered-e-commerce/blob/75dffa8138ee645427a64c804427d87155bafe6a/Screenshot%202025-10-19%20122119.png)
----
 
-## 🚀 Features
-
-### 🧾 User Features
-- 🔍 **Search Products:** Real-time product search by name or keyword.  
-- 🧭 **Category Filters:** Filter by category and subcategory (Men, Women, Kids, etc.).  
-- 🛒 **Shopping Cart:** Add, update, and remove products easily.  
-- 💰 **Price Sorting:** Sort products by price (Low → High / High → Low).  
-- 💳 **Checkout System:** Place orders and view order summary.  
-- 🔐 **Authentication:** Login and signup with secure token-based authentication (JWT).  
-- 💬 **AI Chatbot:** Integrated AI assistant using Hugging Face for product help, FAQs, and voice chat.  
-- 🧑‍💻 **Responsive UI:** Fully responsive and mobile-friendly design using Tailwind CSS.
----
-
-### 🧠 Admin Features 
-- 📦 Add, edit, or delete products.  
-- 📊 Manage orders and track sales.  
-- ⚙️ Manage users and roles.  
+![Home Page](https://github.com/abdulodhood003/Ai-powered-e-commerce/blob/main/Screenshot%202025-10-19%20122119.png)
 
 ---
 
-## 🧠 AI Chatbot Features
+## ✨ Key Features
 
-- 🤖 Product info and recommendations  
-- ❓ Answers to FAQs (delivery, refund, size, etc.)  
-- 🗣️ Voice input (Speech-to-Text)  
-- 🔊 Voice reply (Text-to-Speech)  
-- 💬 Hugging Face GPT API integration  
-- 💡 Smart suggestions while typing  
+### 👤 Customer Features
+
+* Product Search & Discovery
+* Advanced Category Filtering
+* Shopping Cart Management
+* Product Sorting & Filtering
+* Secure User Authentication
+* Order Placement & Tracking
+* Responsive Mobile-Friendly Design
+* AI Shopping Assistant
+
+### 🤖 AI Assistant Features
+
+* Product Recommendations
+* FAQ Support
+* Delivery & Return Information
+* Voice-to-Text Interaction
+* Text-to-Speech Responses
+* Smart Product Suggestions
+* Hugging Face AI Integration
+
+### 🛠️ Admin Features
+
+* Product Management
+* Inventory Management
+* Order Monitoring
+* User Management
+* Sales Tracking
+* Store Administration Dashboard
 
 ---
 
-## 🏗️ Tech Stack
+## 🏗️ Technology Stack
 
-### **Frontend**
-- ⚛️ React.js  
-- 🌐 React Router DOM  
-- 🎨 Tailwind CSS  
-- 🔔 React Toastify  
-- ⚡ Axios  
+### Frontend
 
-### **Backend**
-- 🟢 Node.js  
-- 🚀 Express.js  
-- 🗄️ MongoDB (Mongoose)  
-- 🔑 JWT Authentication  
-- 🔒 Bcrypt.js  
+* React.js
+* React Router DOM
+* Tailwind CSS
+* Axios
+* React Toastify
+
+### Backend
+
+* Node.js
+* Express.js
+* MongoDB Atlas
+* Mongoose
+* JWT Authentication
+* Bcrypt.js
+
+### AI Integration
+
+* Hugging Face API
+* Speech Recognition API
+* Text-to-Speech API
+
+### Deployment
+
+* Frontend: Vercel
+* Backend: Vercel Serverless Functions
+* Database: MongoDB Atlas
 
 ---
 
-### **🌐 Deployment**
+## 🚀 Core Functionalities
 
-- Frontend: Vercel
+✅ Authentication & Authorization
 
-- Backend: Vercel (Serverless)
+✅ Product Catalog Management
 
-- Database: MongoDB Atlas
+✅ Shopping Cart System
 
-  ---
+✅ Order Processing
 
-### **👨‍💻 Developer**
+✅ AI Shopping Assistant
 
-- Abdul Odudood M.A.K
-- 💼 MERN Stack Developer
-- 🌐 (https://aurafit-frontend.vercel.app/login)
-- 📧 [abdulodudood@gmail.com]
+✅ Voice-Based Interactions
+
+✅ Responsive Design
+
+✅ Admin Dashboard
+
+✅ RESTful API Architecture
+
+---
+
+## 📂 Project Architecture
+
+```text
+Frontend (React)
+│
+├── Authentication
+├── Product Catalog
+├── Shopping Cart
+├── AI Chat Assistant
+├── User Dashboard
+└── Order Management
+
+Backend (Node.js + Express)
+│
+├── Authentication APIs
+├── Product APIs
+├── Order APIs
+├── User APIs
+└── AI Integration Services
+
+Database (MongoDB)
+```
+
+---
+
+## 🌐 Live Application
+
+### 👉 https://aurafit-frontend.vercel.app
+
+---
+
+## 👨‍💻 Developer
+
+### Abdul Odudood M.A.K
+
+* MERN Stack Developer
+* Full Stack Web Developer
+* AI Application Developer
+
+📧 [abdulodudood@gmail.com](mailto:abdulodudood@gmail.com)
+
+---
+
+## ⭐ Support
+
+If you found this project helpful, please consider giving it a ⭐ on GitHub.
