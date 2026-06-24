@@ -5,7 +5,7 @@
 ### Modern MERN Stack E-Commerce Platform with AI Shopping Assistant
 
 [![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_Now-blue?style=for-the-badge)](https://aurafit-frontend.vercel.app)
-[![Source Code](https://img.shields.io/badge/📂_Source_Code-GitHub-black?style=for-the-badge)](https://github.com/abdulodhood003/Ai-powered-e-commerce)
+[![Source Code](https://github.com/abdulodhood003/Ai-powered-e-commerce)](https://github.com/abdulodhood003/Ai-powered-e-commerce)
 
 ![React](https://img.shields.io/badge/React-Frontend-blue?style=for-the-badge\&logo=react)
 ![Node.js](https://img.shields.io/badge/Node.js-Backend-green?style=for-the-badge\&logo=node.js)
